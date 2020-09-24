@@ -5,4 +5,4 @@ x = map(int, x)
 
 print(','.join(
     map(str, sorted(x))
-    ))
+))

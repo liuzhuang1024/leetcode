@@ -73,7 +73,7 @@ def rpn(arr: list) -> int:
 
 
 if __name__ == "__main__":
-    s = "(1+3)*5*(1-2-3+4+6)+33"
+    s = r"(1+3)*5*(1-2-3+4+6)+33/45+333"
     res = solve(s)
     print(res)
     res = list2rpn(res)
