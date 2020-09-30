@@ -21,15 +21,23 @@ def gen(lt: list) -> ListNode:
     p = cur = ListNode(lt.pop(0))
     while lt:
         cur.next = ListNode(lt.pop(0))
+        cur = cur.next
     return p
 
 
-if __name__ == "__main__":
-    l1 = [1, 2, 3, 5]
-    l2 = [2, 4]
-    res = solve(gen(l1), gen(l2))
+def print_lsitnode(res: ListNode):
     lt = []
     while res:
         lt.append(res.val)
         res = res.next
     print(*lt, sep='->')
+    return
+
+
+if __name__ == "__main__":
+    l1 = gen([1, 6, 6, 5])
+    l2 = gen([2, 4, 3])
+    print_lsitnode(l1)
+    print_lsitnode(l2)
+    res = solve(l1, l2)
+    print_lsitnode(res)
