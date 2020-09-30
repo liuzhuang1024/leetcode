@@ -6,11 +6,15 @@ class ListNode:
 
 
 def solve(l1: ListNode, l2: ListNode) -> ListNode:
-    """ 待定 """
-    p = pre = cur = ListNode(0)
-    while l1 or l2:
-        pass
-    return p
+    """ 待定 其他方法更好"""
+    def dfs(l, r, i):
+        if not l and not r and not i:
+            return
+        res = (l.val if l else 0) + (r.val if r else 0) + i
+        node = ListNode(res % 10)
+        node.next = dfs(l.next if l else None, r.next if r else None, res//10)
+        return node
+    return dfs(l1, l2, 0)
 
 
 def gen(lt: list) -> ListNode:
@@ -21,7 +25,11 @@ def gen(lt: list) -> ListNode:
 
 
 if __name__ == "__main__":
-    l1 = [1, 2, 3]
+    l1 = [1, 2, 3, 5]
     l2 = [2, 4]
     res = solve(gen(l1), gen(l2))
-    print(res)
+    lt = []
+    while res:
+        lt.append(res.val)
+        res = res.next
+    print(*lt, sep='->')
