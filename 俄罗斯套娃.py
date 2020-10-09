@@ -1,6 +1,6 @@
 
 
-def taow(arr):
+def solve(arr):
     arr.sort()
     dp = [1] * len(arr)
     for i in range(1, len(arr)):
@@ -12,5 +12,5 @@ def taow(arr):
 
 if __name__ == "__main__":
     envelopes = [[5, 4], [6, 4], [6, 7], [2, 3]]
-    res = taow(envelopes)
+    res = solve(envelopes)
     print(res)
