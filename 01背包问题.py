@@ -11,7 +11,7 @@ def solve():
 
 if __name__ == "__main__":
     N = 3
-    W = 4
+    W = 8
     wt = [2, 1, 3]
     val = [4, 2, 3]
     res = solve()
