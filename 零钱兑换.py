@@ -1,6 +1,10 @@
 def solve(coins, amount):
+    """
+    零钱问题I
+    注意二者之间的差别
+    """
     if amount == 0:
-        return 1
+        return 0
     if amount < 0:
         return -1
     dp = [amount+1] * (amount+1)
@@ -14,6 +18,10 @@ def solve(coins, amount):
 
 
 def solve_v2(coins, amount):
+    """
+    零钱问题II
+    解析位置   https://leetcode-cn.com/problems/coin-change/solution/yi-bian-jiu-dong-zhi-bei-bao-wen-ti-by-christmas_w/
+    """
     if amount == 0:
         return 1
     if amount < 0:
