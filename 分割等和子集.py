@@ -20,6 +20,5 @@ def solve(arr):
 
 if __name__ == "__main__":
     arr = [1, 2, 5]
-
     res = solve(arr)
     print(res)
