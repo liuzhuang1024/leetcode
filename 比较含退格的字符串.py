@@ -1,4 +1,7 @@
 def solve(A: str, B: str) -> bool:
+    """
+    可以考虑一下双指针的方法
+    """
     if A == B:
         return True
     return del_char(A) == del_char(B)
