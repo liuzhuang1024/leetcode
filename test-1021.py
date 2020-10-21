@@ -40,6 +40,7 @@ def sort_(arr: list, left: int, right: int) -> list:
 # 问题四
 # resnet解决了什么问题。
 
+# 今天比较惨啊，面的很难受，知识点薄弱。自己表达能力欠佳。加油吧！实习生！
 
 if __name__ == "__main__":
 
