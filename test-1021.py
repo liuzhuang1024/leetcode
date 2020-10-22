@@ -19,8 +19,13 @@
 #     # 第三步：剔除top1，设置iou阈值0.8，保留小于阈值的bbox，剔除大于的bbox。
 #     # 第四步：循环第三步。
 #     return
-
+import logging
+logging.basicConfig(
+    level=logging.WARNING
+)
 # 问题三：快排算法的实现
+
+
 def sort_(arr: list, left: int, right: int) -> list:
     """
     快排算法书写错误。基础不扎实。
@@ -28,22 +33,39 @@ def sort_(arr: list, left: int, right: int) -> list:
     min_ = left
     max_ = right
     p = arr[left]
-    while left == right:
-        while arr[right] >= p:
-            right -= 1
-        while arr[left] < p:
-            left += 1
-        arr[right], arr[left] = arr[left], arr[right]
-    sort_(arr[min_:left-1], min_, left-1-min_)
-    sort_(arr[left+1:max_], left+1, max_-left-1)
+    while min_ < max_:
+        while arr[max_] >= p and max_ > min_:
+            max_ -= 1
+        while arr[min_] < p and min_ < max_:
+            min_ += 1
+        arr[max_], arr[min_] = arr[min_], arr[max_]
+    if left < min_:
+        sort_(arr, left=left, right=min_)
+    if right > min_:
+        sort_(arr, left=min_+1, right=right)
     return arr
+
+
 # 问题四
 # resnet解决了什么问题。
 
 # 今天比较惨啊，面的很难受，知识点薄弱。自己表达能力欠佳。加油吧！实习生！
 
-if __name__ == "__main__":
 
-    arr = [1, 2, 4, 6]
-    res = sort_(arr, left=0, right=len(arr))
-    print(res)
+def test():
+    import random
+    arr = [random.randint(0, 1e+8) for i in range(random.randint(1, 500))]
+    logging.info(arr)
+    res = sort_(arr, left=0, right=len(arr)-1)
+    logging.info(res)
+    if arr == sorted(arr):
+        logging.info("True")
+        return True
+    else:
+        logging.info("False")
+        return False
+
+if __name__ == "__main__":
+    logging.warning("start")
+    if all([test() for _ in range(1)]):
+        logging.warning("True")
